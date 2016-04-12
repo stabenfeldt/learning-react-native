@@ -1,5 +1,5 @@
-var React = require('react-native');
-var {
+const React = require('react-native');
+const {
   StyleSheet,
   Text,
   View,
@@ -7,9 +7,9 @@ var {
   Image
 } = React;
 
-var Forecast = require('./Forecast');
+const Forecast = require('./Forecast');
 
-var WeatherProject = React.createClass({
+const WeatherProject = React.createClass({
   getInitialState: function() {
     return {
       zip: '',
@@ -70,9 +70,9 @@ var WeatherProject = React.createClass({
   }
 });
 
-var baseFontSize = 16;
+const baseFontSize = 16;
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
