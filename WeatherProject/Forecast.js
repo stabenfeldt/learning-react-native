@@ -1,12 +1,12 @@
-var React = require('react-native');
-var {
+const React = require('react-native');
+const {
   StyleSheet,
   Text,
   View
 } = React;
 
 
-var Forecast = React.createClass({
+const Forecast = React.createClass({
   render() {
     return (
       <View>
@@ -24,7 +24,7 @@ var Forecast = React.createClass({
   }
 });
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   bigText: {
     flex: 2,
     fontSize: 20,
