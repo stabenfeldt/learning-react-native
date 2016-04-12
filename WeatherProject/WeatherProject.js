@@ -7,7 +7,7 @@ const {
   Image
 } = React;
 
-const Forecast = require('./Forecast');
+import Forecast from './Forecast';
 
 const WeatherProject = React.createClass({
   getInitialState: function() {
