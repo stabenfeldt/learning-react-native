@@ -21,7 +21,7 @@ var WeatherProject = React.createClass({
     var zip = event.nativeEvent.text;
     this.setState({zip: zip});
     fetch('http://api.openweathermap.org/data/2.5/weather?q='
-      + zip + '&units=imperial')
+      + zip + '&units=metric&APPID=245b784becb9d7ad326e947a25eef839')
       .then((response) => response.json())
       .then((responseJSON) => {
         this.setState({
@@ -53,13 +53,13 @@ var WeatherProject = React.createClass({
           <View style={styles.overlay}>
            <View style={styles.row}>
              <Text style={styles.mainText}>
-               Current weather for 
+               Current weather 
              </Text>
-             <View style={styles.zipContainer}>
-               <TextInput
-                 style={[styles.zipCode, styles.mainText]}
-                 onSubmitEditing={this._handleTextChange}/>
-             </View>
+           </View>
+           <View style={styles.rowZipCode}>
+              <TextInput
+                style={styles.zipCode}
+                onSubmitEditing={this._handleTextChange}/>
            </View>
            {content}
          </View>
@@ -75,41 +75,51 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: 30
+    paddingTop: 30,
   },
   backdrop: {
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
   overlay: {
     paddingTop: 5,
     backgroundColor: '#000000',
     opacity: 0.5,
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   row: {
     flex: 1,
     flexDirection: 'row',
     flexWrap: 'nowrap',
     alignItems: 'flex-start',
-    padding: 30
+    paddingTop: 30,
+    paddingBottom: 10,
+  },
+  rowZipCode: {
+    paddingBottom: 30,
   },
   zipContainer: {
     flex: 1,
     borderBottomColor: '#DDDDDD',
     borderBottomWidth: 1,
     marginLeft: 5,
-    marginTop: 3
+    marginTop: 3,
   },
   zipCode: {
-    width: 50,
-    height: baseFontSize,
+    width: 375,
+    height: baseFontSize * 3,
+    borderBottomColor: '#DDDDDD',
+    backgroundColor: '#ffffff',
+    color: '#000000',
+    textAlign: 'center',
+    fontSize: baseFontSize * 2,
+    padding: 5,
   },
   mainText: {
     flex: 1,
     fontSize: baseFontSize,
-    color: '#FFFFFF'
+    color: '#FFFFFF',
   }
 });
 

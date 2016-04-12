@@ -17,7 +17,7 @@ var Forecast = React.createClass({
           Current conditions: {this.props.description}
         </Text>
         <Text style={styles.bigText}>
-          {this.props.temp}°F
+          {this.props.temp}°C
         </Text>
       </View>
     );
