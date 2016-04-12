@@ -59,6 +59,7 @@ var WeatherProject = React.createClass({
            <View style={styles.rowZipCode}>
               <TextInput
                 style={styles.zipCode}
+                placeholder='Name of a city'
                 onSubmitEditing={this._handleTextChange}/>
            </View>
            {content}
