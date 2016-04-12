@@ -18,7 +18,7 @@ const WeatherProject = React.createClass({
   },
 
   _handleTextChange: function(event) {
-    var zip = event.nativeEvent.text;
+    const zip = event.nativeEvent.text;
     this.setState({zip: zip});
     fetch('http://api.openweathermap.org/data/2.5/weather?q='
       + zip + '&units=metric&APPID=245b784becb9d7ad326e947a25eef839')
@@ -38,7 +38,7 @@ const WeatherProject = React.createClass({
   },
 
   render: function() {
-    var content = null;
+    let content = null;
     if (this.state.forecast !== null) {
       content = <Forecast 
                   main={this.state.forecast.main}
