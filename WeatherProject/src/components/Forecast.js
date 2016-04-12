@@ -12,7 +12,7 @@ import Strong from './Strong';
 export default class Forecast extends Component {
   render() {
     return (
-      <View>
+      <View style={styles.bottomEdge}>
         <Text style={styles.bigText}>
           <Strong>{this.props.main}</Strong>
         </Text>
@@ -32,13 +32,17 @@ const styles = StyleSheet.create({
     flex: 2,
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
-    color: '#FFFFFF'
+    color: '#FFFFFF',
+    paddingBottom: 10,
   },
   mainText: {
     flex: 1,
     fontSize: 16,
     textAlign: 'center',
-    color: '#FFFFFF'
-  }
+    color: '#FFFFFF',
+    paddingBottom: 10,
+  },
+  bottomEdge: {
+    paddingBottom: 20,
+  },
 })
