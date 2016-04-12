@@ -6,18 +6,21 @@ const {
   View,
 } = React;
 
+import Em from './Em';
+import Strong from './Strong';
+
 export default class Forecast extends Component {
   render() {
     return (
       <View>
         <Text style={styles.bigText}>
-          {this.props.main}
+          <Strong>{this.props.main}</Strong>
         </Text>
         <Text style={styles.mainText}>
-          Current conditions: {this.props.description}
+          Current conditions: <Em>{this.props.description}</Em>
         </Text>
         <Text style={styles.bigText}>
-          {this.props.temp}°C
+          <Strong>{this.props.temp}</Strong>°C
         </Text>
       </View>
     );
