@@ -1,23 +1,24 @@
 import React from 'react-native';
 const {
+  Component,
   StyleSheet,
   Text,
   View,
   TextInput,
-  Image
+  Image,
 } = React;
 
 import Forecast from './Forecast';
 
-const WeatherProject = React.createClass({
-  getInitialState: function() {
-    return {
+export default class WeatherProject extends Component {
+  componentWillMount() {
+    this.setState({
       zip: '',
       forecast: null
-    };
-  },
+    });
+  }
 
-  _handleTextChange: function(event) {
+  _handleTextChange(event) {
     const zip = event.nativeEvent.text;
     this.setState({zip: zip});
     fetch('http://api.openweathermap.org/data/2.5/weather?q='
@@ -35,9 +36,9 @@ const WeatherProject = React.createClass({
       .catch((error) => {
         console.warn(error);
       });
-  },
+  }
 
-  render: function() {
+  render() {
     let content = null;
     if (this.state.forecast !== null) {
       content = <Forecast 
@@ -60,7 +61,7 @@ const WeatherProject = React.createClass({
               <TextInput
                 style={styles.zipCode}
                 placeholder='Name of a city'
-                onSubmitEditing={this._handleTextChange}/>
+                onSubmitEditing={this._handleTextChange.bind(this)}/>
            </View>
            {content}
          </View>
@@ -68,7 +69,7 @@ const WeatherProject = React.createClass({
       </View>
     );
   }
-});
+}
 
 const baseFontSize = 16;
 
@@ -123,5 +124,3 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   }
 });
-
-module.exports = WeatherProject;
