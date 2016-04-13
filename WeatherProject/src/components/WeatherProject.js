@@ -49,7 +49,7 @@ export default class WeatherProject extends Component {
     return (
       <View style={styles.container}>
         <Image source={require('image!flowers')}
-               resizeMode='cover'
+               resizeMode='stretch'
                style={styles.backdrop}>
           <View style={styles.overlay}>
            <View style={styles.row}>
