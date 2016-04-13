@@ -48,9 +48,9 @@ export default class WeatherProject extends Component {
     }
     return (
       <View style={styles.container}>
-        <Image source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
+        <Image source={require('image!flowers')}
                resizeMode='cover'
-               style={[styles.backdrop, {width: 400, height: 400}]}>
+               style={styles.backdrop}>
           <View style={styles.overlay}>
            <View style={styles.row}>
              <Text style={styles.mainText}>
@@ -64,6 +64,9 @@ export default class WeatherProject extends Component {
                 onSubmitEditing={this._handleTextChange.bind(this)}/>
            </View>
            {content}
+          <Image source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
+            resizeMode='contain'
+            style={[styles.logo, {width: 200, height: 200}]} />
          </View>
         </Image>
       </View>
@@ -82,6 +85,10 @@ const styles = StyleSheet.create({
   backdrop: {
     flex: 1,
     flexDirection: 'column',
+  },
+  logo: {
+    flex: 1,
+    flexDirection: 'row',
   },
   overlay: {
     paddingTop: 5,
