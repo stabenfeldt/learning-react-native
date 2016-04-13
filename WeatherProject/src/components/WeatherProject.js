@@ -60,7 +60,7 @@ export default class WeatherProject extends Component {
            <View style={styles.rowZipCode}>
               <TextInput
                 style={styles.zipCode}
-                placeholder='Name of a city'
+                placeholder='Get weather of a city'
                 onSubmitEditing={this._handleTextChange.bind(this)}/>
            </View>
            {content}
@@ -124,6 +124,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: baseFontSize * 2,
     padding: 5,
+    borderRadius: 15,
   },
   mainText: {
     flex: 1,
