@@ -48,9 +48,9 @@ export default class WeatherProject extends Component {
     }
     return (
       <View style={styles.container}>
-        <Image source={require('image!flowers')}
-               resizeMode='stretch'
-               style={styles.backdrop}>
+        <Image source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
+               resizeMode='cover'
+               style={[styles.backdrop, {width: 400, height: 400}]}>
           <View style={styles.overlay}>
            <View style={styles.row}>
              <Text style={styles.mainText}>
