@@ -15,7 +15,7 @@ export default class Touch extends Component {
   render() {
     return (
       <View>
-        <PressDemo />
+        <PanDemo />
       </View>
     );
   }

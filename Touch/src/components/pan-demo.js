@@ -1,64 +1,48 @@
 // Adapted from https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/PanResponderExample.js
+import React from 'react-native';
 
-var React = require('react-native');
-var {
+const {
+  Component,
   StyleSheet,
   PanResponder,
   View,
   Text
 } = React;
 
-var CIRCLE_SIZE = 40;
-var CIRCLE_COLOR = 'blue';
-var CIRCLE_HIGHLIGHT_COLOR = 'green';
+const CIRCLE_SIZE = 90;
+const CIRCLE_COLOR = '#002266';
+const CIRCLE_HIGHLIGHT_COLOR = '#ff9900';
 
-var PanResponderExample = React.createClass({
+export default class PanResponderExample extends Component {
 
-  // Set some initial values.
-  _panResponder: {},
-  _previousLeft: 0,
-  _previousTop: 0,
-  _circleStyles: {},
-  circle: null,
-
-  getInitialState: function() {
-    return {
-      numberActiveTouches: 0,
-      moveX: 0,
-      moveY: 0,
-      x0: 0,
-      y0: 0,
-      dx: 0,
-      dy: 0,
-      vx: 0,
-      vy: 0,
-    }
-  },
-
-  componentWillMount: function() {
+  componentWillMount() {
     this._panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: this._handleStartShouldSetPanResponder,
-      onMoveShouldSetPanResponder: this._handleMoveShouldSetPanResponder,
-      onPanResponderGrant: this._handlePanResponderGrant,
-      onPanResponderMove: this._handlePanResponderMove,
-      onPanResponderRelease: this._handlePanResponderEnd,
-      onPanResponderTerminate: this._handlePanResponderEnd,
+      onStartShouldSetPanResponder: this._handleStartShouldSetPanResponder.bind(this),
+      onMoveShouldSetPanResponder: this._handleMoveShouldSetPanResponder.bind(this),
+      onPanResponderGrant: this._handlePanResponderGrant.bind(this),
+      onPanResponderMove: this._handlePanResponderMove.bind(this),
+      onPanResponderRelease: this._handlePanResponderEnd.bind(this),
+      onPanResponderTerminate: this._handlePanResponderEnd.bind(this),
     });
-    this._previousLeft = 20;
-    this._previousTop = 84;
+    this._previousLeft = 160;
+    this._previousTop = 350;
     this._circleStyles = {
       style: {
         left: this._previousLeft,
         top: this._previousTop,
       }
     };
-  },
+    
+    this.setState({
+        numberActiveTouches: 0,
+    });
+  }
 
-  componentDidMount: function() {
+  componentDidMount() {
     this._updatePosition();
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <View style={styles.container}>
         <View
@@ -67,55 +51,53 @@ var PanResponderExample = React.createClass({
           }}
           style={styles.circle}
           {...this._panResponder.panHandlers}/>
-        <Text>
-          {this.state.numberActiveTouches} touches,
-          dx: {this.state.dx},
-          dy: {this.state.dy},
-          vx: {this.state.vx},
-          vy: {this.state.vy}
-        </Text>
+        <Text style={styles.info}>{this.state.numberActiveTouches} touch(es)</Text>
+        <Text style={styles.info}>position x: {this.state.dx}</Text>
+        <Text style={styles.info}>position y: {this.state.dy}</Text>
+        <Text style={styles.info}>velocity x: {this.state.vx}</Text>
+        <Text style={styles.info}>velocity y: {this.state.vy}</Text>
       </View>
     );
-  },
+  }
 
   // _highlight and _unHighlight get called by PanResponder methods,
   // providing visual feedback to the user.
-  _highlight: function() {
+  _highlight() {
     this.circle && this.circle.setNativeProps({
       style: {
         backgroundColor: CIRCLE_HIGHLIGHT_COLOR 
       }
     });
-  },
+  }
 
-  _unHighlight: function() {
+  _unHighlight() {
     this.circle && this.circle.setNativeProps({
       style: {
         backgroundColor: CIRCLE_COLOR
       }
     });
-  },
+  }
 
   // We're controlling the circle's position directly with setNativeProps.
-  _updatePosition: function() {
+  _updatePosition() {
     this.circle && this.circle.setNativeProps(this._circleStyles);
-  },
+  }
 
-  _handleStartShouldSetPanResponder: function(e: Object, gestureState: Object): boolean {
+  _handleStartShouldSetPanResponder(e, gestureState) {
     // Should we become active when the user presses down on the circle?
     return true;
-  },
+  }
 
-  _handleMoveShouldSetPanResponder: function(e: Object, gestureState: Object): boolean {
+  _handleMoveShouldSetPanResponder(e, gestureState) {
     // Should we become active when the user moves a touch over the circle?
     return true;
-  },
+  }
 
-  _handlePanResponderGrant: function(e: Object, gestureState: Object) {
+  _handlePanResponderGrant(e, gestureState) {
     this._highlight();
-  },
+  }
 
-  _handlePanResponderMove: function(e: Object, gestureState: Object) {
+  _handlePanResponderMove(e, gestureState) {
     this.setState({
       stateID: gestureState.stateID,
       moveX: gestureState.moveX,
@@ -133,28 +115,31 @@ var PanResponderExample = React.createClass({
     this._circleStyles.style.left = this._previousLeft + gestureState.dx;
     this._circleStyles.style.top = this._previousTop + gestureState.dy;
     this._updatePosition();
-  },
-  _handlePanResponderEnd: function(e: Object, gestureState: Object) {
+  }
+
+  _handlePanResponderEnd(e, gestureState) {
     this._unHighlight();
     this._previousLeft += gestureState.dx;
     this._previousTop += gestureState.dy;
-  },
-});
+  }
+}
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   circle: {
     width: CIRCLE_SIZE,
     height: CIRCLE_SIZE,
     borderRadius: CIRCLE_SIZE / 2,
     backgroundColor: CIRCLE_COLOR,
     position: 'absolute',
-    left: 0,
-    top: 0,
   },
   container: {
     flex: 1,
-    paddingTop: 64,
+    paddingTop: 30,
+  },
+  info: {
+    backgroundColor: '#cccccc',
+    paddingTop: 1,
+    paddingLeft: 5,
+    paddingRight: 5,
   },
 });
-
-module.exports = PanResponderExample;
