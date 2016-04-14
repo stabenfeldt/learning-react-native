@@ -26,3 +26,9 @@ project.xcworkspace
 #
 node_modules/
 npm-debug.log
+
+# Android local setup files
+**/android/local.properties
+**/android/.idea/workspace.xml
+**/android/.idea/tasks.xml
+**/android/.gradle
