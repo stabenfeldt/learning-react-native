@@ -1,0 +1,29 @@
+// Configuration: http://eslint.org/docs/user-guide/configuring
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "commonjs": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "0.14.7"
+    }
+  },
+  "plugins": [
+    "react",
+    "react-native"
+  ],
+  "extends": [
+    "plugin:react/recommended"
+  ]
+}
