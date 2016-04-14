@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
   logo: {
     flex: 1,
     flexDirection: 'row',
+    marginBottom: 30,
   },
   overlay: {
     paddingTop: 5,

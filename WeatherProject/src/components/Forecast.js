@@ -44,5 +44,6 @@ const styles = StyleSheet.create({
   },
   bottomEdge: {
     paddingBottom: 20,
+    alignItems: 'center',
   },
 })
