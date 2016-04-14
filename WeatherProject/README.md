@@ -2,7 +2,7 @@
 
 ## Releases
 
-### v0.0.2 (future release tag)
+### v0.0.2
 Fixes and updates to work with the new React Native.
 
 - react-native version in package.json
