@@ -6,8 +6,8 @@ const {
   View,
 } = React;
 
-import Em from './Em';
-import Strong from './Strong';
+import Em from './em';
+import Strong from './strong';
 
 export default class Forecast extends Component {
   render() {

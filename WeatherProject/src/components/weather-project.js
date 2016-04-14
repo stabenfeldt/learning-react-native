@@ -8,7 +8,7 @@ const {
   Image,
 } = React;
 
-import Forecast from './Forecast';
+import Forecast from './forecast';
 
 export default class WeatherProject extends Component {
   componentWillMount() {
