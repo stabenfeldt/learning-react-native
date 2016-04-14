@@ -1,37 +1,43 @@
-var React = require('react-native');
-var {
+import React from 'react-native';
+
+const {
+  Component,
   StyleSheet,
   Text,
   View,
   TouchableHighlight
 } = React;
 
-var Button = React.createClass({
-  getInitialState: function() {
-    return {
+export default class Button extends Component {
+  componentWillMount() {
+    this.setState({
       pressing: false
-    }
-  },
+    });
+  }
 
-  _onPressIn: function() {
-    this.setState({pressing: true});
-  },
+  _onPressIn() {
+    this.setState({
+      pressing: true
+    });
+  }
 
-  _onPressOut: function() {
-    this.setState({pressing: false});
-  },
+  _onPressOut() {
+    this.setState({
+      pressing: false
+    });
+  }
 
-  render: function() {
+  render() {
     return (
       <View style={styles.container}>
         <TouchableHighlight
-          onPressIn={this._onPressIn}
-          onPressOut={this._onPressOut}
+          onPressIn={this._onPressIn.bind(this)}
+          onPressOut={this._onPressOut.bind(this)}
           style={styles.touchable}>
 
           <View style={styles.button}>
             <Text style={styles.welcome}>
-              {this.state.pressing ? 'EEK!' : 'PUSH ME'}
+              {this.state.pressing ? 'EEK!' : 'TOUCH'}
             </Text>
           </View>
 
@@ -39,9 +45,9 @@ var Button = React.createClass({
       </View>
     );
   }
-});
+}
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -52,18 +58,16 @@ var styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-    color: '#FFFFFF'
+    color: '#FFFFFF',
   },
   touchable: {
-    borderRadius: 100
+    borderRadius: 50,
   },
   button: {
     backgroundColor: '#FF0000',
-    borderRadius: 100,
-    height: 200,
-    width: 200,
-    justifyContent: 'center'
+    borderRadius: 50,
+    height: 100,
+    width: 100,
+    justifyContent: 'center',
   },
 });
-
-module.exports = Button;
