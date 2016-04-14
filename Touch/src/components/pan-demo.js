@@ -52,8 +52,8 @@ export default class PanResponderExample extends Component {
           style={styles.circle}
           {...this._panResponder.panHandlers}/>
         <Text style={styles.info}>{this.state.numberActiveTouches} touch(es)</Text>
-        <Text style={styles.info}>position x: {this.state.dx}</Text>
-        <Text style={styles.info}>position y: {this.state.dy}</Text>
+        <Text style={styles.info}>distance x: {this.state.dx}</Text>
+        <Text style={styles.info}>distance y: {this.state.dy}</Text>
         <Text style={styles.info}>velocity x: {this.state.vx}</Text>
         <Text style={styles.info}>velocity y: {this.state.vy}</Text>
       </View>
