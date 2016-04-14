@@ -1,7 +1,5 @@
 // Adapted from https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/PanResponderExample.js
 
-'use strict';
-
 var React = require('react-native');
 var {
   StyleSheet,
