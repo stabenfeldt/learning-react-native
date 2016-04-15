@@ -20,12 +20,18 @@ export default class Forecast extends Component {
           Current conditions: <Em>{this.props.description}</Em>
         </Text>
         <Text style={styles.bigText}>
-          <Strong>{this.props.temp}</Strong>°C
+          <Strong>{this.props.temp.toString()}</Strong>°C
         </Text>
       </View>
     );
   }
 }
+
+Forecast.propTypes = {
+  main: React.PropTypes.string.isRequired,
+  description: React.PropTypes.string.isRequired,
+  temp: React.PropTypes.number.isRequired,
+};
 
 const styles = StyleSheet.create({
   bigText: {

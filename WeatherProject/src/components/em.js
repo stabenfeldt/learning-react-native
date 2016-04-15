@@ -15,6 +15,10 @@ export default class Em extends Component {
   }
 }
 
+Em.propTypes = {
+  children: React.PropTypes.string.isRequired,
+};
+
 const styles = StyleSheet.create({
   italic: {
     fontStyle: 'italic',

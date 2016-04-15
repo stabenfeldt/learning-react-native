@@ -15,6 +15,10 @@ export default class Strong extends Component {
   }
 }
 
+Strong.propTypes = {
+  children: React.PropTypes.string.isRequired,
+};
+
 const styles = StyleSheet.create({
   bold: {
     fontWeight: 'bold',
