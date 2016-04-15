@@ -54,13 +54,13 @@ export default class WeatherProject extends Component {
           <View style={styles.overlay}>
            <View style={styles.row}>
              <Text style={styles.mainText}>
-               Current weather 
+               Current weather of a city
              </Text>
            </View>
-           <View style={styles.rowZipCode}>
+           <View style={styles.rowCityNameInput}>
               <TextInput
-                style={styles.zipCode}
-                placeholder='Get weather of a city'
+                style={styles.cityNameInput}
+                placeholder='Name of a city'
                 onSubmitEditing={this._handleTextChange.bind(this)}/>
            </View>
            {content}
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     paddingBottom: 10,
   },
-  rowZipCode: {
+  rowCityNameInput: {
     paddingBottom: 30,
   },
   zipContainer: {
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     marginTop: 3,
   },
-  zipCode: {
+  cityNameInput: {
     width: 375,
     height: baseFontSize * 3,
     borderBottomColor: '#DDDDDD',
