@@ -1,0 +1,22 @@
+{
+  "name": "learning-react-native",
+  "version": "1.0.0",
+  "description": "Code samples for the book Learning React Native.",
+  "main": "wallaby.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebabel-eu/learning-react-native.git"
+  },
+  "author": "Nadjib Amar <hello@ebabel.eu> (http://ebabel.eu/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ebabel-eu/learning-react-native/issues"
+  },
+  "homepage": "https://github.com/ebabel-eu/learning-react-native#readme",
+  "devDependencies": {
+    "wallaby-webpack": "0.0.22"
+  }
+}
