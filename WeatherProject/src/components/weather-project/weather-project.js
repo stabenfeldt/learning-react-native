@@ -52,21 +52,18 @@ export default class WeatherProject extends Component {
                resizeMode='cover'
                style={styles.backdrop}>
           <View style={styles.overlay}>
-           <View style={styles.row}>
-             <Text style={styles.mainText}>
-               Current weather of a city
-             </Text>
-           </View>
-           <View style={styles.rowCityNameInput}>
+            <View style={styles.row}>
+              <Text style={styles.mainText}>
+                Current weather of a city
+              </Text>
+            </View>
+            <View style={styles.rowCityNameInput}>
               <TextInput
                 style={styles.cityNameInput}
                 placeholder='Name of a city'
                 onSubmitEditing={this._handleTextChange.bind(this)}/>
-           </View>
-           {content}
-          <Image source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
-            resizeMode='contain'
-            style={[styles.logo, {width: 200, height: 200}]} />
+            </View>
+            {content}
          </View>
         </Image>
       </View>
