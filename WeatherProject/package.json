@@ -3,10 +3,14 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "start": "node_modules/react-native/packager/packager.sh"
+    "start": "node_modules/react-native/packager/packager.sh",
+    "prepublish": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
     "react": "0.14.5",
-    "react-native": "0.23.1"
-  }
+    "react-native": "0.39.1",
+    "@snyk/protect": "latest"
+  },
+  "snyk": true
 }
